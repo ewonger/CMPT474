@@ -1,8 +1,8 @@
 let api = {
-    gateway: "https://1s1p98yyu5.execute-api.us-east-1.amazonaws.com/dev/",
-    albumBucketName: "mypetfindrbucket",
+    gateway: " https://purbbcv5e1.execute-api.us-east-1.amazonaws.com/dev",
+    albumBucketName: "petfindr-1",
     bucketRegion: "us-east-1",
-    IdentityPoolId: "us-east-1:9d8c2e1f-692c-49d5-bf53-b999eed86683",
+    IdentityPoolId: "us-east-1:d84dbfa1-3977-419b-904d-23dcb645619d",
 }
 
 export default api;
