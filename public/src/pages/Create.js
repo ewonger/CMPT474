@@ -18,6 +18,8 @@ import Form from 'react-bootstrap/Form';
 import Marker from '../components/Marker';
 import GoogleMapReact from 'google-map-react';
 
+let api_url - api.gateway + 'postings/create';
+
 export default function Create() {
   const [petName, setPetName] = useState("");
   const [animalType, setAnimalType] = useState("Cat");
@@ -81,7 +83,7 @@ export default function Create() {
     setBtnState(true);
     console.log(postObj);
     
-    await fetch(api.gateway, {
+    await fetch(api_url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
       cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
