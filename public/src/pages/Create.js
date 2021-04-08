@@ -81,6 +81,7 @@ export default function Create() {
     setBtnState(true);
     console.log(postObj);
     let api_url = api.gateway + "postings/create";
+    
     await fetch(api_url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
