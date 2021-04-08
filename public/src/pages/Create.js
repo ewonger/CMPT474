@@ -18,7 +18,7 @@ import Form from 'react-bootstrap/Form';
 import Marker from '../components/Marker';
 import GoogleMapReact from 'google-map-react';
 
-let api_url - api.gateway + 'postings/create';
+let api_url = api.gateway + 'postings/create';
 
 export default function Create() {
   const [petName, setPetName] = useState("");
