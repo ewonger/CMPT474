@@ -20,7 +20,7 @@ import GoogleMapReact from 'google-map-react';
 
 export default function Create() {
   const [petName, setPetName] = useState("");
-  const [animalType, setAnimalType] = useState("Cat");
+  const [animalType, setAnimalType] = useState("Dog");
   const [description, setDescription] = useState("");
   const [city, setCity] = useState("Vancouver");
   const [email, setEmail] = useState("");
@@ -38,12 +38,8 @@ export default function Create() {
 
   const [btnIsDisabled, setBtnState] = useState(false);
 
-  function previewImage(event){
-    let r = new FileReader();
-    r.onload = function(){
-      setImageURL(r.result);
-    }
-    r.readAsDataURL(event.target.files[0]);
+  function emailIsValid (email) {
+    return /\S+@\S+\.\S+/.test(email)
   }
 
   function checkMissingAttributes(){
@@ -70,12 +66,16 @@ export default function Create() {
         }
     }
 
+    if(!emailIsValid(postObj.contactEmail)){
+      return null;
+    }
+
     if (missingAttribute) {
-        return null;
+      return null;
     }
     else {
-        console.log("missing attributes function", postObj);
-        return postObj;
+      console.log("missing attributes function", postObj);
+      return postObj;
     }
   }
 
@@ -136,6 +136,14 @@ export default function Create() {
     else{
       alert("Choose a file to upload first.");
     }
+  }
+
+  function previewImage(event){
+    let r = new FileReader();
+    r.onload = function(){
+      setImageURL(r.result);
+    }
+    r.readAsDataURL(event.target.files[0]);
   }
 
   /*
@@ -302,9 +310,10 @@ export default function Create() {
                   console.log("imgkey", imgKey);
                   postObj.imgKey = imgKey;
                   await postDetails(postObj);
+                  window.location.href = "/";
               }
               else {
-                  alert("Form is incomplete");
+                  alert("Form is incomplete or email is invalid.");
               }
             }}
           >
